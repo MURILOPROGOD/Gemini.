@@ -1,178 +1,58 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloxUniverse - Histórias e Lendas do Roblox</title>
-    <style>
-        /* Estilos do Blog (CSS) */
-        :root {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --primary-color: #00a2ff;
-            --secondary-color: #1f1f1f;
-            --accent-color: #ff3b3b;
-        }
+# 📐 Desvendando a Função do 1º Grau: Guia Passo a Passo
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+Bem-vindo ao nosso blog de matemática! Hoje vamos explicar de forma simples e prática como funciona e como resolver uma **Função do 1º Grau** (também conhecida como função afim). 
 
-        header {
-            background-color: var(--secondary-color);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--primary-color);
-        }
+---
 
-        header h1 {
-            margin: 0;
-            color: var(--primary-color);
-            font-size: 2.5em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+## 🧠 O que é uma Função do 1º Grau?
 
-        header p {
-            color: #888;
-            margin-top: 5px;
-        }
+A função do 1º grau é uma regra matemática que relaciona duas variáveis (geralmente chamadas de **x** e **y**). A sua fórmula geral é:
 
-        .container {
-            width: 85%;
-            max-width: 1100px;
-            margin: 20px auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+**f(x) = ax + b** (ou  **y = ax + b**)
 
-        main {
-            flex: 3;
-            min-width: 300px;
-        }
+Onde:
+* **x**: É a variável independente.
+* **f(x) ou y**: É o resultado (variável dependente).
+* **a**: É o coeficiente angular (indica a inclinação da reta e não pode ser zero).
+* **b**: É o coeficiente linear (onde a reta corta o eixo Y).
 
-        aside {
-            flex: 1;
-            min-width: 250px;
-            background-color: var(--secondary-color);
-            padding: 20px;
-            border-radius: 8px;
-            height: fit-content;
-        }
+![Gráfico Exemplo de Função](https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&auto=format&fit=crop) *(Dica: substitua esse link pela imagem do seu próprio gráfico!)*
 
-        article {
-            background-color: var(--secondary-color);
-            margin-bottom: 30px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        }
+---
 
-        .post-title {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
+## ✏️ Como resolver? Passo a Passo Prático
 
-        .post-meta {
-            font-size: 0.85em;
-            color: #777;
-            margin-bottom: 15px;
-        }
+Vamos resolver um exemplo clássico: encontrar o **zero da função** (ou a raiz), que é o valor de **x** que faz a função ser igual a zero.
 
-        .post-image {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            border: 2px solid #333;
-        }
+### Exemplo: f(x) = 2x - 6
 
-        .lenda-tag {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: bold;
-        }
+**Passo 1: Igualar a função a zero**
+Para achar onde a reta cruza o eixo X, dizemos que f(x) = 0.
+> 2x - 6 = 0
 
-        .evento-tag {
-            background-color: #ffd700;
-            color: #000;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: bold;
-        }
+**Passo 2: Isolar o termo com x**
+Passamos o -6 para o outro lado da igualdade mudando o sinal (ele vira +6).
+> 2x = 6
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: var(--secondary-color);
-            border-top: 1px solid #333;
-            margin-top: 40px;
-        }
+**Passo 3: Passar o coeficiente dividindo**
+O 2 que está multiplicando o x passa para o outro lado dividindo o 6.
+> x = 6 / 2
+> **x = 3**
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
+Pronto! A raiz da função é **3**. Isso significa que no gráfico, a reta vai passar exatamente pelo ponto (3, 0).
 
-    <header>
-        <h1>BloxUniverse</h1>
-        <p>O seu portal definitivo sobre Histórias, Eventos e Mitos do Roblox</p>
-    </header>
+---
 
-    <div class="container">
-        <main>
-            <article>
-                <h2 class="post-title">A Verdade Sobre o Guest 666 <span class="lenda-tag">Lenda</span></h2>
-                <div class="post-meta">Postado por Admin em 30 de Junho de 2026</div>
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Imagem misteriosa representando o Guest 666" class="post-image">
-                <p>Todo jogador veterano de Roblox já ouviu falar do famoso <strong>Guest 666</strong>. Antigamente, quando os jogadores podiam entrar nos mapas sem uma conta registrada (como "Guests"), um mito começou a se espalhar. Dizia a lenda que se você encontrasse um Guest com o número 666, coisas estranhas aconteceriam no servidor.</p>
-                <p>Apesar de muitos vídeos no YouTube mostrarem supostos "poderes de admin" desse jogador, a verdade é que o Guest 666 era apenas um ID de visitante como qualquer outro. O mito cresceu tanto que a própria comunidade abraçou a ideia, criando dezenas de jogos de terror baseados nele. Em 2017, a Roblox removeu o recurso de Guests, tornando o Guest 666 uma lenda definitiva do passado.</p>
-            </article>
+## 📈 Como montar o Gráfico?
 
-            <article>
-                <h2 class="post-title">A Evolução do Egg Hunt <span class="evento-tag">Evento Histórico</span></h2>
-                <div class="post-meta">Postado por Admin em 25 de Junho de 2026</div>
-                <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ovos dourados representando o Egg Hunt" class="post-image">
-                <p>O <strong>Egg Hunt</strong> (Caça aos Ovos) foi um dos eventos anuais mais amados da história do Roblox. Tudo começou em 2008 de forma bem simples: ovos caíam do céu no jogo e os jogadores precisavam coletá-los para ganhar chapéus exclusivos.</p>
-                <p>Com o passar dos anos, o evento se transformou em uma superprodução. Em 2018 e 2019, tivemos mundos inteiros interligados, com missões complexas e chefões (bosses) para derrotar. Infelizmente, a Roblox mudou o formato dos eventos globais recentemente, mas os "Egg Hunts" clássicos sempre terão um espaço garantido no coração da comunidade.</p>
-            </article>
-        </main>
+O gráfico de toda função do 1º grau é sempre uma **linha reta**. Para desenhá-lo, você só precisa de dois pontos:
 
-        <aside>
-            <h3>Sobre o Blog</h3>
-            <p>Criado e codificado no VS Code! Aqui exploramos os mistérios, as atualizações gigantes e a nostalgia do universo Roblox.</p>
-            
-            <h3>Tópicos Populares</h3>
-            <ul>
-                <li>O mito do John Doe</li>
-                <li>Como o Roblox Studio mudou</li>
-                <li>O fim dos Tix (Tickets)</li>
-                <li>Os melhores jogos de terror</li>
-            </ul>
+1.  **O ponto onde corta o eixo Y:** É sempre o valor de **b**. No nosso exemplo, b = -6, então o ponto é `(0, -6)`.
+2.  **O ponto onde corta o eixo X:** É a raiz que calculamos. No nosso exemplo, x = 3, então o ponto é `(3, 0)`.
 
-            <h3>Status da Plataforma</h3>
-            <p style="color: #00ff00;">Roblox: <strong>Online</strong></p>
-        </aside>
-    </div>
+Basta marcar esses dois pontos no plano cartesiano e traçar uma reta unindo-os!
 
-    <footer>
-        <p>&copy; 2026 BloxUniverse. Criado com HTML, CSS e muita paixão por Roblox.</p>
-    </footer>
+![Plano Cartesiano](https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&auto=format&fit=crop)
 
-</body>
-</html>
+---
+💬 *Gostou do conteúdo? Deixe suas dúvidas nos comentários abaixo!*
