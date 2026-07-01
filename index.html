@@ -1,58 +1,291 @@
-# 📐 Desvendando a Função do 1º Grau: Guia Passo a Passo
+import os
+from weasyprint import HTML
 
-Bem-vindo ao nosso blog de matemática! Hoje vamos explicar de forma simples e prática como funciona e como resolver uma **Função do 1º Grau** (também conhecida como função afim). 
+# Create the HTML structure for the blog article about Fortnite history, styled as a premium tech/gaming blog setup guide via VS Code
+html_content = """
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Fortnite: A História e o Lore Através do VS Code</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm;
+            background-color: #f8fafc;
+            @bottom-right {
+                content: counter(page);
+                font-family: Arial, sans-serif;
+                font-size: 9pt;
+                color: #64748b;
+            }
+            @bottom-left {
+                content: "DevBlog: A Evolução de Fortnite";
+                font-family: Arial, sans-serif;
+                font-size: 9pt;
+                color: #64748b;
+            }
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
 
----
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #1e293b;
+            font-size: 10.5pt;
+            line-height: 1.6;
+        }
 
-## 🧠 O que é uma Função do 1º Grau?
+        /* Full bleed top banner using negative margins */
+        .header-banner {
+            margin: -20mm -15mm 25px -15mm;
+            padding: 35px 15mm;
+            background-color: #0f172a;
+            color: #f8fafc;
+            border-bottom: 4px solid #6366f1;
+        }
 
-A função do 1º grau é uma regra matemática que relaciona duas variáveis (geralmente chamadas de **x** e **y**). A sua fórmula geral é:
+        .header-banner h1 {
+            margin: 0;
+            font-size: 22pt;
+            color: #38bdf8;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+        }
 
-**f(x) = ax + b** (ou  **y = ax + b**)
+        .header-banner .subtitle {
+            margin: 8px 0 0 0;
+            font-size: 11.5pt;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-Onde:
-* **x**: É a variável independente.
-* **f(x) ou y**: É o resultado (variável dependente).
-* **a**: É o coeficiente angular (indica a inclinação da reta e não pode ser zero).
-* **b**: É o coeficiente linear (onde a reta corta o eixo Y).
+        .meta-info {
+            margin-top: 15px;
+            font-size: 9pt;
+            color: #6366f1;
+            font-weight: bold;
+        }
 
-![Gráfico Exemplo de Função](https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&auto=format&fit=crop) *(Dica: substitua esse link pela imagem do seu próprio gráfico!)*
+        h2 {
+            font-size: 14pt;
+            color: #0f172a;
+            border-left: 4px solid #6366f1;
+            padding-left: 12px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            page-break-after: avoid;
+        }
 
----
+        h3 {
+            font-size: 11.5pt;
+            color: #4f46e5;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            page-break-after: avoid;
+        }
 
-## ✏️ Como resolver? Passo a Passo Prático
+        p {
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
 
-Vamos resolver um exemplo clássico: encontrar o **zero da função** (ou a raiz), que é o valor de **x** que faz a função ser igual a zero.
+        ul, ol {
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
 
-### Exemplo: f(x) = 2x - 6
+        li {
+            margin-bottom: 6px;
+        }
 
-**Passo 1: Igualar a função a zero**
-Para achar onde a reta cruza o eixo X, dizemos que f(x) = 0.
-> 2x - 6 = 0
+        /* VS Code Code Blocks styling */
+        .vscode-command {
+            background-color: #1e1e2e;
+            color: #cdd6f4;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 9pt;
+            margin: 12px 0;
+            border-left: 3px solid #f5c2e7;
+            page-break-inside: avoid;
+        }
 
-**Passo 2: Isolar o termo com x**
-Passamos o -6 para o outro lado da igualdade mudando o sinal (ele vira +6).
-> 2x = 6
+        .vscode-shortcut {
+            background-color: #e2e8f0;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 9pt;
+            font-weight: bold;
+        }
 
-**Passo 3: Passar o coeficiente dividindo**
-O 2 que está multiplicando o x passa para o outro lado dividindo o 6.
-> x = 6 / 2
-> **x = 3**
+        /* Callout Box */
+        .callout-box {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 14px;
+            margin: 18px 0;
+            border-radius: 0 8px 8px 0;
+            page-break-inside: avoid;
+        }
 
-Pronto! A raiz da função é **3**. Isso significa que no gráfico, a reta vai passar exatamente pelo ponto (3, 0).
+        .callout-box p {
+            margin: 0;
+            font-size: 10pt;
+            color: #1e3a8a;
+        }
 
----
+        .callout-box strong {
+            color: #1d4ed8;
+        }
 
-## 📈 Como montar o Gráfico?
+        /* Custom Table for Chapters */
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
 
-O gráfico de toda função do 1º grau é sempre uma **linha reta**. Para desenhá-lo, você só precisa de dois pontos:
+        .history-table th {
+            background-color: #4f46e5;
+            color: #ffffff;
+            text-align: left;
+            padding: 10px;
+            font-size: 10pt;
+            font-weight: 600;
+        }
 
-1.  **O ponto onde corta o eixo Y:** É sempre o valor de **b**. No nosso exemplo, b = -6, então o ponto é `(0, -6)`.
-2.  **O ponto onde corta o eixo X:** É a raiz que calculamos. No nosso exemplo, x = 3, então o ponto é `(3, 0)`.
+        .history-table td {
+            padding: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 9.5pt;
+            vertical-align: top;
+        }
 
-Basta marcar esses dois pontos no plano cartesiano e traçar uma reta unindo-os!
+        .history-table tr:nth-child(even) {
+            background-color: #f1f5f9;
+        }
 
-![Plano Cartesiano](https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&auto=format&fit=crop)
+        .chapter-tag {
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 8.5pt;
+            display: inline-block;
+        }
 
----
-💬 *Gostou do conteúdo? Deixe suas dúvidas nos comentários abaixo!*
+        .citation-note {
+            font-size: 8pt;
+            color: #94a3b8;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-banner">
+        <div class="subtitle">Guia do Desenvolvedor & Lore</div>
+        <h1>Construindo um Blog de Fortnite no VS Code: A História do Jogo</h1>
+        <div class="meta-info">Ambiente: Visual Studio Code | Linguagem: Markdown & HTML | Tema: Universo Fortnite</div>
+    </div>
+
+    <h2>1. Configurando o Projeto no VS Code</h2>
+    <p>Para estruturar este blog técnico sobre a história do <em>Fortnite</em>, utilizaremos o potencial produtivo do <strong>Visual Studio Code</strong>. O fluxo consiste em criar um documento estruturado em Markdown (<code>.md</code>) e utilizar extensões nativas e comandos da Palette para visualizar o resultado em tempo real.</p>
+    
+    <p>Primeiramente, abra o VS Code e crie o arquivo principal do blog utilizando o terminal integrado ou o menu de comandos rápidos:</p>
+    
+    <div class="vscode-command">
+        # Passo 1: Abrir a Command Palette (Ctrl+Shift+P ou Cmd+Shift+P)<br>
+        # Passo 2: Digitar "File: New File" e criar 'fortnite-history-blog.md'<br>
+        # Passo 3: Ativar o Preview do Markdown usando o atalho abaixo:
+    </div>
+    
+    <p>Para visualizar a renderização enquanto escreve a história, utilize o atalho <span class="vscode-shortcut">Ctrl + K V</span> (ou digite <code>Markdown: Open Preview to the Side</code> na Command Palette). Isso dividirá sua tela, exibindo o código de um lado e o design do blog do outro.</p>
+
+    <div class="callout-box">
+        <strong>Dica de Extensão:</strong> Instale a extensão <em>Markdown All in One</em> e o <em>Live Server</em> via VS Code Marketplace para automatizar sumários e simular a publicação real do blog diretamente no seu navegador.
+    </div>
+
+    <h2>2. Estrutura de Conteúdo: A Evolução do Jogo (Capítulos)</h2>
+    <p>O universo do Fortnite não é estático; ele é categorizado por grandes Eras chamadas de <strong>Capítulos</strong>. Cada capítulo reconstrói totalmente a geografia da ilha, as mecânicas de movimentação e o arco narrativo central.</p>
+
+    <table class="history-table">
+        <thead>
+            <tr>
+                <th style="width: 25%;">Capítulo / Período</th>
+                <th style="width: 75%;">Resumo da Era e Impacto no Universo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="chapter-tag">Capítulo 1</span><br><small>2017 – 2019</small></td>
+                <td>Começou com a icônica ilha clássica, introduzindo os primeiros crossovers de grande porte (como Thanos/Vingadores) e eventos ao vivo históricos. A <strong>Temporada X</strong> culminou no evento catastrófico do <em>Buraco Negro</em>, que simplesmente engoliu todo o jogo, deixando-o inacessível por dois dias inteiros.</td>
+            </tr>
+            <tr>
+                <td><span class="chapter-tag">Capítulo 2</span><br><small>2019 – 2021</small></td>
+                <td>Apresentou um mapa completamente novo focado em dinâmicas aquáticas (barcos, natação e pesca). A narrativa central focou na guerra declarada entre duas facções lendárias: <strong>Os Sete</strong> (que buscavam libertar a realidade) e a <strong>Ordem Imaginária (OI)</strong>, que controlava o Loop.</td>
+            </tr>
+            <tr>
+                <td><span class="chapter-tag">Capítulo 3 ao 5</span><br><small>2021 – 2024</small></td>
+                <td>A própria realidade foi destruída e remontada diversas vezes. Foram introduzidas mecânicas modernas (como o modo Construção Zero, corrida e escalada). Colaborações colossais com propriedades intelectuais como <em>Marvel, Star Wars, LEGO</em> e <em>Naruto</em> foram integradas organicamente à história através do conceito de viagens interdimensionais.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Histórias e Mistérios Principais (O "Lore" Oculto)</h2>
+    <p>Por trás do aspecto competitivo de Battle Royale, Fortnite esconde uma complexa ficção científica de multiversos. Os principais pilares dessa narrativa foram revelados ao longo dos anos:</p>
+
+    <h3>O Ponto Zero (Zero Point)</h3>
+    <p>Funciona essencialmente como o <em>Big Bang</em> de todo o cosmos do jogo. É a fonte de energia omnipotente que a Epic Games utiliza como justificativa narrativa para conectar realidades paralelas e trazer personagens de franquias completamente distintas para o Loop da ilha.</p>
+
+    <h3>A Origem do Cubo "Kevin"</h3>
+    <p>Introduzido originalmente na Temporada 6 do Capítulo 1, este misterioso objeto senciente e geométrico era, na verdade, uma ferramenta da <strong>Última Realidade</strong> — uma força alienígena destrutiva e conquistadora de mundos. O Cubo se moveu de forma enigmática pelo mapa deixando runas de corrupção e alterando a gravidade e a própria geografia da ilha.</p>
+
+    <h3>Os Sete (The Seven)</h3>
+    <p>Um enigmático grupo de sete heróis interdimensionais mascarados cujo objetivo era quebrar o ciclo perpétuo do Loop e salvar os habitantes escravizados pela Ordem Imaginária. Eles foram liderados por figuras carismáticas como <em>O Fundação</em> (The Foundation), a personagem <strong>Valentia</strong> e, eventualmente, contaram com a aliança estratégica do <strong>Agente Jones</strong>.</p>
+
+    <h2>4. Principais Teorias da Comunidade</h2>
+    <p>Devido à narrativa do jogo ser contada de forma fragmentada e não-linear (através de telas de carregamento, diálogos de NPCs e pistas no cenário), a comunidade desenvolveu teorias que ganharam status de lenda no ecossistema geek:</p>
+
+    <ul>
+        <li><strong>Teoria do Vácuo e do Nada:</strong> Sugere que a constante manipulação e eventual libertação do Ponto Zero atrairia uma força de antimatéria absoluta chamada de <em>"O Nada"</em>. Esta teoria provou-se parcialmente correta com a chegada da corrupção pelo <em>Cromo</em> em temporadas subsequentes, ameaçando consumir toda a matéria orgânica e metálica existente na realidade.</li>
+        <li><strong>O Destino Crônico de Jonesy:</strong> Uma teoria clássica que teorizava que o Agente Jones ficaria preso no tempo. Isso se confirmou quando o personagem envelheceu sozinho dentro de um bunker secreto no mapa do Capítulo 1, tornando-se o <em>"Jones Bunker"</em> — um NPC essencial cujas paredes pichadas desvendaram com precisão os planos nefastos da Ordem Imaginária (OI).</li>
+    </ul>
+
+    <h2>5. Visualizando e Exportando seu Blog via VS Code</h2>
+    <p>Se você deseja publicar este artigo formatado ou transformá-lo em uma página estática, pode utilizar a Command Palette do VS Code para gerar o código HTML final ou gerar relatórios em PDF de alta fidelidade:</p>
+
+    <div class="vscode-command">
+        # Para exportar seu Markdown para HTML ou PDF usando extensões do VS Code:<br>
+        1. Abra o arquivo 'fortnite-history-blog.md'<br>
+        2. Execute Ctrl+Shift+P -> "Markdown PDF: Export (pdf)" ou "Export (html)"<br>
+        3. O resultado gerará um layout limpo, mantendo a semântica de cabeçalhos e tabelas.
+    </div>
+
+    <p style="margin-top: 30px; border-top: 1px solid #cbd5e1; padding-top: 10px;" class="citation-note">
+        Este guia une a prática de desenvolvimento web moderno dentro do ambiente do VS Code com a análise das teorias do Ponto Zero, demonstrando como o design de conteúdo estruturado pode enriquecer a apresentação de narrativas complexas de jogos.
+    </p>
+
+</body>
+</html>
+"""
+
+# Output path
+pdf_filename = "blog_historia_fortnite_vscode.pdf"
+
+# Generate PDF via WeasyPrint
+HTML(string=html_content).write_pdf(pdf_filename)
+print(f"PDF successfully generated: {pdf_filename}")
